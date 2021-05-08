@@ -5,10 +5,7 @@ fn get_number_arguments() -> Vec<u32> {
     let args = env::args();
 
     let mut numbers: Vec<u32> = args
-        .map(|arg| match arg.trim().parse::<u32>() {
-            Ok(number) => Some(number),
-            Err(_) => None,
-        })
+        .map(|arg| arg.trim().parse::<u32>().ok())
         .filter(Option::is_some)
         .map(Option::unwrap)
         .collect();
