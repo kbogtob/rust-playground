@@ -13,7 +13,7 @@ fn fibo_memoized(n: u32, memoized_values: &mut Vec<u64>) -> u64 {
     match memoized_values.get(n as usize) {
         Some(memoized_value) => *memoized_value,
         None => {
-            while memoized_values.len() < n as usize {
+            while memoized_values.len() - 1 < n as usize {
                 let prev = memoized_values[memoized_values.len() - 2];
                 let current = memoized_values[memoized_values.len() - 1];
                 memoized_values.push(prev + current)
@@ -30,7 +30,7 @@ fn fast_fibo(n: u32) -> u64 {
 
 fn main() {
     // fibo of 95 is larger than a u64
-    for n in 0..95 {
+    for n in 0..94 {
         println!("fibo({}) -> {}", n, fast_fibo(n));
     }
 }
