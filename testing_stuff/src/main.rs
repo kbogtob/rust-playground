@@ -16,16 +16,16 @@ fn is_palindrome(string: &str) -> bool {
     let length = string.len();
 
     loop {
-        let left = from_start.next().unwrap();
-        let right = from_end.next().unwrap();
+        let (left_index, left_value) = from_start.next().unwrap();
+        let (right_index, right_value) = from_end.next().unwrap();
 
         // return false if pointed char is different
-        if left.1 != right.1 {
+        if left_value != right_value {
             return false;
         }
 
         // if both iterators are at the same indice, we will return true
-        if left.0 == length - right.0 - 1 {
+        if left_index == length - right_index - 1 {
             return true;
         }
     }
