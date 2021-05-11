@@ -26,6 +26,7 @@ fn compute_median(numbers: &Vec<u32>) -> u32 {
 }
 
 // compute the mode of given numbers
+#[allow(dead_code)]
 fn compute_mode_unsorted(numbers: &Vec<u32>) -> u32 {
     let mut occurences = HashMap::new();
 
